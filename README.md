@@ -37,3 +37,6 @@
 ## 使用素材
 フリーイラスト素材として以下を使用
 - photoAC URL:https://www.photo-ac.com/
+
+## 実装機能リストURL
+https://docs.google.com/spreadsheets/d/171NoG4w2AxYLx492Rw6PqaKtiIvpmPT0rHmpt7ZiQV8/edit#gid=1898975908
