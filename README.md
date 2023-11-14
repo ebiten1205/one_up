@@ -22,6 +22,8 @@
 - 努力している人の手伝いをしたい時
 
 ## 設計書
+実装機能リストURL
+https://docs.google.com/spreadsheets/d/171NoG4w2AxYLx492Rw6PqaKtiIvpmPT0rHmpt7ZiQV8/edit#gid=1898975908
 ​
 ## 開発環境
 - OS：Linux(CentOS)
@@ -33,6 +35,3 @@
 ## 使用素材
 フリーイラスト素材として以下を使用
 - photoAC URL:https://www.photo-ac.com/
-
-## 実装機能リストURL
-https://docs.google.com/spreadsheets/d/171NoG4w2AxYLx492Rw6PqaKtiIvpmPT0rHmpt7ZiQV8/edit#gid=1898975908
