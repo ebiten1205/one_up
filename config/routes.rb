@@ -12,6 +12,30 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
   
-  root to: "homes#top"
+  # moduleはURLに、今回でいうとpublicをつけないようにできる。
+  scope module: :public do
+    get '/about' => 'homes#about', as: 'about'
+    #resources :の後にはテーブル名を記載。そのあとにonlyオプションでアクション名を記述。
+    #注意　resourcesを使った場合にうまくアクションを認識できない場合がある。今回だとordersコントローラーが
+    # 例でresourceにordersコントローラーを入れてしまうとなぜかshowアクションとしてconfirmationアクション認識されてしまうため、
+    # そういった場合にはresourceから外して1つずつurlを設定していくしかない。下記のordersのurlのように。
+    # 注意　resourcesで作ったルートに関してはurlに必ず/:idと入ってしまい、エラーの原因になりやすいため注意が必要。
+    # resources :items, only: [:index, :show, :create, :new, :edit, :update]
+     root to: "homes#top"
+     # URLを自分で決めたものにカスタムするには、HTTPメソッド "任意のURL"=>"コントローラー名＃アクション名"　の形式の記述で変更できる。
+     # またルーティングを各順番にも気を付ける（上から順番に読まれる）。
+     get "/customers/my_page/edit"=>"customers#edit"
+     patch "/customers/my_page"=>"customers#update"
+     get "/customers/my_page"=>"customers#show"
+     get "/customers/unsubscribe"=>"customers#unsubscribe"
+     patch "/customers/withdrawal"=>"customers#withdrawal"
+  end
+  
+  namespace :admin do
+    resources :sessions, only: [:new, :index, :show, :edit, :create, :update]
+    root to: 'homes#top'
+  end
+  
+  # root to: "homes#top"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
