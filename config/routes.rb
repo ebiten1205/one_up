@@ -25,6 +25,8 @@ Rails.application.routes.draw do
      root to: "homes#top"
      # URLを自分で決めたものにカスタムするには、HTTPメソッド "任意のURL"=>"コントローラー名＃アクション名"　の形式の記述で変更できる。
      # またルーティングを各順番にも気を付ける（上から順番に読まれる）。
+     get '/search', to: 'searches#search'
+     get "/genres/search" => "searchs#genre_search"
      get "/customers/my_page/edit"=>"customers#edit"
      patch "/customers/my_page"=>"customers#update"
      get "/customers/my_page"=>"customers#show"
