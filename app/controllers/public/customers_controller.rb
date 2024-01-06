@@ -22,7 +22,7 @@ class Public::CustomersController < ApplicationController
     end
   end
 # findメソッドは:idのようにidを探すときに使えるものである。
-def update
+  def update
 		@customer = current_customer
 		if @customer.update(customer_params)
 			if customer_signed_in?
@@ -33,7 +33,11 @@ def update
 				redirect_to customers_edit_path
 			end
 		end
-end
+  end
+  
+  def liked_posts
+    @liked_posts = Post.liked_posts(current_customer, params[:page], 12)
+  end
 	
 	private
 	

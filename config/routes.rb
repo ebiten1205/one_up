@@ -15,21 +15,26 @@ Rails.application.routes.draw do
   # moduleはURLに、今回でいうとpublicをつけないようにできる。
   scope module: :public do
     #get'/'=>'public/homes#top'
+    root to: "homes#top"
     get '/about' => 'homes#about', as: 'about'
     #resources :の後にはテーブル名を記載。そのあとにonlyオプションでアクション名を記述。
     #注意　resourcesを使った場合にうまくアクションを認識できない場合がある。今回だとordersコントローラーが
     # 例でresourceにordersコントローラーを入れてしまうとなぜかshowアクションとしてconfirmationアクション認識されてしまうため、
     # そういった場合にはresourceから外して1つずつurlを設定していくしかない。下記のordersのurlのように。
     # 注意　resourcesで作ったルートに関してはurlに必ず/:idと入ってしまい、エラーの原因になりやすいため注意が必要。
-    resources :posts, only: [:new, :create, :index, :show, :destroy]
-     root to: "homes#top"
+    resources :posts, only: [:new, :create, :index, :show, :destroy, :update, :edit] do
+      resource :likes, only: [:create, :destroy]
+    end
+    resources :customers, only: [:show, :edit, :update] do
+      member do
+        #いいね一覧
+        get :liked_posts
+      end
+    end
      # URLを自分で決めたものにカスタムするには、HTTPメソッド "任意のURL"=>"コントローラー名＃アクション名"　の形式の記述で変更できる。
      # またルーティングを各順番にも気を付ける（上から順番に読まれる）。
      get '/search', to: 'searches#search'
      get "/genres/search" => "searchs#genre_search"
-     get "/customers/my_page/edit"=>"customers#edit"
-     patch "/customers/my_page"=>"customers#update"
-     get "/customers/my_page"=>"customers#show"
      get "/customers/unsubscribe"=>"customers#unsubscribe"
      patch "/customers/withdrawal"=>"customers#withdrawal"
   end
