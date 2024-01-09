@@ -4,6 +4,8 @@ class Public::CustomersController < ApplicationController
   # 定義してあげるといい。ログインしているcustomer＝current_customer
   def show
     @customer = current_customer
+    @following_customers = @customer.following_customers
+    @follower_customers = @customer.follower_customers
   end
   
   def withdrawal
@@ -38,6 +40,18 @@ class Public::CustomersController < ApplicationController
   def liked_posts
     @liked_posts = Post.liked_posts(current_customer, params[:page], 12)
   end
+  
+  # フォロー一覧
+def follows
+  customer = Customer.find(params[:id])
+  @customers = customer.following_customers
+end
+
+# フォロワー一覧
+def followers
+  customer = Customer.find(params[:id])
+  @customer = customer.follower_customers
+end
 	
 	private
 	

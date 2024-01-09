@@ -25,11 +25,15 @@ Rails.application.routes.draw do
     resources :posts, only: [:new, :create, :index, :show, :destroy, :update, :edit] do
       resource :likes, only: [:create, :destroy]
     end
-    resources :customers, only: [:show, :edit, :update] do
+    resources :customers, only: [:index, :show, :edit, :update] do
       member do
+        #フォロー、フォロワー
+        get :follows, :followers
+        
         #いいね一覧
         get :liked_posts
       end
+      resource :relationships, only: [:create, :destroy]
     end
      # URLを自分で決めたものにカスタムするには、HTTPメソッド "任意のURL"=>"コントローラー名＃アクション名"　の形式の記述で変更できる。
      # またルーティングを各順番にも気を付ける（上から順番に読まれる）。

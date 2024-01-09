@@ -1,0 +1,33 @@
+<h2>Followers</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customer.each do |customer| %>
+      <tr>
+        <td>
+          <%= link_to customer_path(customer) do %>
+            <%= image_tag customer.get_profile_image(50,50) %>
+          <% end %>
+        </td>
+        <td><%= customer.name %></td>
+        <td>
+          <%= link_to follows_customer_path(customer) do %>
+            <p>フォロー<%= customer.followers.count %></p>
+          <% end %>
+        </td>
+        <td>  
+          <%= link_to followers_customer_path(customer) do %>
+            <p>フォロワー<%= customer.follows.count %></p>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table> 

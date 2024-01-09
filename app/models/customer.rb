@@ -5,6 +5,15 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
+  # フォローをした、されたの関係
+  has_many :follows, class_name: "Relationship", foreign_key: "follow_id", dependent: :destroy
+  has_many :followers, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+
+  # 一覧画面で使う
+  has_many :following_customers, through: :follows, source: :follow
+  has_many :follower_customers, through: :followers, source: :follower
+
+         
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
          
