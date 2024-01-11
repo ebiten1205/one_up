@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     # そういった場合にはresourceから外して1つずつurlを設定していくしかない。下記のordersのurlのように。
     # 注意　resourcesで作ったルートに関してはurlに必ず/:idと入ってしまい、エラーの原因になりやすいため注意が必要。
     resources :posts, only: [:new, :create, :index, :show, :destroy, :update, :edit] do
+      resources :post_comments, only: [:create, :destroy]
       resource :likes, only: [:create, :destroy]
     end
     resources :customers, only: [:index, :show, :edit, :update] do
