@@ -36,12 +36,16 @@ Rails.application.routes.draw do
       end
       resource :relationships, only: [:create, :destroy]
     end
+    resources :notifications, only: [:index] do
+    end
+    end
      # URLを自分で決めたものにカスタムするには、HTTPメソッド "任意のURL"=>"コントローラー名＃アクション名"　の形式の記述で変更できる。
      # またルーティングを各順番にも気を付ける（上から順番に読まれる）。
      get '/search', to: 'searches#search'
      get "/genres/search" => "searchs#genre_search"
      get "/customers/unsubscribe"=>"customers#unsubscribe"
      patch "/customers/withdrawal"=>"customers#withdrawal"
+     get '/timeline', to: 'timelines#index', as: 'timeline'
   end
   
   namespace :admin do
