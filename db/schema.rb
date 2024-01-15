@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_11_090404) do
+ActiveRecord::Schema.define(version: 2024_01_15_065259) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -53,13 +53,17 @@ ActiveRecord::Schema.define(version: 2024_01_11_090404) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.string "visitor_id", null: false
-    t.string "visited_id", null: false
-    t.integer "notificatable_id", null: false
-    t.string "notificatable_type", null: false
+    t.string "notificatable_type"
+    t.integer "notificatable_id"
+    t.integer "customer_id", null: false
+    t.integer "action_type", null: false
     t.boolean "checked", default: false, null: false
+    t.integer "visitor_id"
+    t.integer "visited_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_notifications_on_customer_id"
+    t.index ["notificatable_type", "notificatable_id"], name: "index_notifications_on_notificatable"
   end
 
   create_table "post_comments", force: :cascade do |t|
@@ -101,4 +105,5 @@ ActiveRecord::Schema.define(version: 2024_01_11_090404) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "notifications", "customers"
 end
