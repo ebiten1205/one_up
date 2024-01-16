@@ -48,7 +48,10 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
-    resources :sessions, only: [:new, :index, :show, :edit, :create, :update]
+    resources :sessions, only: [:new, :index, :show, :edit, :create, :update] do
+    end
+    resources :genres, only: [:index, :create, :edit, :update] do
+    end
     root to: 'homes#top'
   end
   

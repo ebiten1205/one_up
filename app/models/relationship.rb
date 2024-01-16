@@ -6,6 +6,10 @@ class Relationship < ApplicationRecord
   belongs_to :follow, class_name: "customer"
   belongs_to :follower, class_name: "customer"
   
+  has_one :notification, as: :notificatable, dependent: :destroy
+  
+  after_create_commit :create_notifications
+  
   #　フォローしたときの処理
   def follow(customer_id)
     follows.create(follow_id: customer_id)
@@ -19,5 +23,11 @@ class Relationship < ApplicationRecord
   #フォローしていればtrueを返す
   def following?(customer)
     following_customers.include?(customer)
+  end
+  
+  private
+  
+  def create_notifications
+    Notification.create(notificatable: self, customer: follower, action_type: :followed_me)
   end
 end

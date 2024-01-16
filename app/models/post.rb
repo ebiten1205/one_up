@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   has_one_attached :image
+  has_one :notification, as: :notificatable, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :genres, dependent: :destroy
   belongs_to :customer

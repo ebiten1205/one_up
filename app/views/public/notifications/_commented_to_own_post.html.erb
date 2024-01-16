@@ -1,0 +1,9 @@
+<%= link_to transition_path(notification) do %>
+  <div>
+    <%= link_to notification.notificatable.customer.first_name, customer_path(notification.notificatable.customer) %>
+    があなたの
+    <%= link_to '投稿', post_path(notification.notificatable.post) %>
+    にコメントしました
+    <%= " (#{time_ago_in_words(notification.created_at)}前)" %>
+  </div>
+<% end %>
