@@ -17,15 +17,16 @@ class Public::CustomersController < ApplicationController
   end
   
   def edit
-    @customer = current_customer
-    #@customer = Customer.find(params[:id])
+    #@customer = current_customer
+    @customer = Customer.find(params[:id])
     if @customer.id != current_customer.id
 	    redirect_to root_path
     end
   end
 # findメソッドは:idのようにidを探すときに使えるものである。
   def update
-		@customer = current_customer
+		#@customer = current_customer
+		@customer = Customer.find(params[:id])
 		if @customer.update(customer_params)
 			if customer_signed_in?
 				flash[:notice] = "登録情報が更新されました。"
@@ -43,14 +44,14 @@ class Public::CustomersController < ApplicationController
   
   # フォロー一覧
 def follows
-  customer = Customer.find(params[:id])
-  @customers = customer.following_customers
+  @customer = Customer.find(params[:id])
+  @customers = @customer.following_customers
 end
 
 # フォロワー一覧
 def followers
-  customer = Customer.find(params[:id])
-  @customer = customer.follower_customers
+  @customer = Customer.find(params[:id])
+  @customer = @customer.follower_customers
 end
 	
 	private
