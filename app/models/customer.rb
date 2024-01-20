@@ -1,10 +1,10 @@
 class Customer < ApplicationRecord
-  has_one_attached :image
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
+  has_one_attached :image
   # フォローをした、されたの関係
   has_many :follows, class_name: "Relationship", foreign_key: "follow_id", dependent: :destroy
   has_many :followers, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
@@ -36,7 +36,7 @@ class Customer < ApplicationRecord
   end
   
   # is_deletedがfalseならtrueを返すようにしている
-  def active_for_authentication?
-    super && (is_deleted == false)
-  end
+  # def active_for_authentication?
+  #   super && (is_deleted == false)
+  # end
 end

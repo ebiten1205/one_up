@@ -50,7 +50,7 @@ class Public::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
   
-  def configure_permitted_parameters
-  devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-  end
+  #def customer_state
+  #end
+  
 end

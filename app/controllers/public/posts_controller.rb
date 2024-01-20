@@ -6,7 +6,8 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
-    @post.genre_id =
+    @post = current_customer.posts.build(post_params)
+    @post.genre_id = params[:post][:genre_id]
     if @post.save
       flash[:notice] = "投稿に成功しました"
       redirect_to post_path(@post.id)
@@ -17,11 +18,20 @@ class Public::PostsController < ApplicationController
   end
     
   def index
+    @posts = Post.all
+    @post = Post.new
+    @customer = current_customer
   end
     
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
+  end
+  
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to posts_path
   end
   
   private
