@@ -5,9 +5,9 @@ class Public::PostCommentsController < ApplicationController
   
   def create
     post = Post.find(params[:post_id])
-    comment = current_customer.post_comments.new(post_comment_params)
-    comment.post_id = post.id
-    comment.save
+    content = current_customer.post_comments.new(post_comment_params)
+    content.post_id = post.id
+    content.save
     redirect_to request.referer
   end
   
@@ -19,6 +19,6 @@ class Public::PostCommentsController < ApplicationController
   private
   
   def post_comment_params
-    params.require(:post_comment).permit(:comment)
+    params.require(:post_comment).permit(:content)
   end
 end

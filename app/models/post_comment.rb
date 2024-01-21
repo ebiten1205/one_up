@@ -6,11 +6,11 @@ class PostComment < ApplicationRecord
     
     after_create_commit :create_notifications
     
-    validates :comment, presence: true
+    validates :content, presence: true
     
     private
     
     def create_notifications
-      Notification.create(notificatable: self, customer: post_comment.customer, action_type: :commented_to_own_post)
+      Notification.create(notificatable: self, customer: self.customer, action_type: :commented_to_own_post)
     end
 end

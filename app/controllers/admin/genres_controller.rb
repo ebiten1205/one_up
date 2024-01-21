@@ -1,4 +1,5 @@
 class Admin::GenresController < ApplicationController
+  before_action :set_genre, only: [:edit, :update]
   def index
     @genre = Genre.new
     @genres = Genre.all
@@ -19,7 +20,7 @@ class Admin::GenresController < ApplicationController
   end
 
   def update
-    if @genre.updete(genre_params)
+    if @genre.update(genre_params)
       redirect_to admin_genres_path, notice: "ジャンルを更新しました"
     else
       render :edit
