@@ -4,6 +4,7 @@ class Public::CustomersController < ApplicationController
   # 定義してあげるといい。ログインしているcustomer＝current_customer
   def show
     @customer = current_customer
+    @posts = @customer.posts.page(params[:page])
     @following_customers = @customer.following_customers
     @follower_customers = @customer.follower_customers
   end
@@ -30,10 +31,10 @@ class Public::CustomersController < ApplicationController
 		if @customer.update(customer_params)
 			if customer_signed_in?
 				flash[:notice] = "登録情報が更新されました。"
-				redirect_to customers_my_page_path
+				redirect_to customer_path
 			else
 			  flash[:notice] = "項目を正しく記入してください"
-				redirect_to customers_edit_path
+				redirect_to edit_customer_path
 			end
 		end
   end
@@ -57,7 +58,7 @@ end
 	private
 	
 	def customer_params
-	   params.require(:customer).permit(:last_name,:first_name,:last_name_kana,:first_name_kana, :email)
+	   params.require(:customer).permit(:last_name,:first_name,:last_name_kana,:first_name_kana, :email, :profile_image)
 	end
 	
 end

@@ -22,6 +22,9 @@
   <% end %>
 
 <%= form_with model: @post,url: posts_path, method: :post do |f| %>
+  <h4>画像</h4>
+  <%= f.file_field :image, accept: "image/*" %>
+  
   <h4>投稿内容</h4>
   <%= f.text_area :content, {placeholder: "ここに募集内容を記入してください"} %>
   

@@ -10,6 +10,7 @@
 <div>
   <%= flash[:notice] %>
 </div>
+<%#= render partial: "customers/info", locals: {customer: current_customer }%>
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
@@ -21,8 +22,8 @@
         <thead>
           <tr>
             <th></th>
-            <th>Title</th>
-            <th>Opinion</th>
+            <th>投稿内容</th>
+            <th>実施場所</th>
             <th colspan="3"></th>
           </tr>
         </thead>
@@ -31,7 +32,7 @@
           <tr>
             <td>
              <%= link_to customer_path(post.customer.id) do %>
-             <%#= image_tag book.user.get_profile_image(80, 80) %>
+             <%= image_tag post.customer.get_profile_image(80, 80) %>
              <% end %> 
             </td>
             <td>
@@ -40,6 +41,7 @@
             <td>
              <%#= book.body %> 
             </td>
+            <td><%= render "public/likes/btn" %></td>
           </tr>
         </tbody>
         <% end %>

@@ -26,13 +26,14 @@ Rails.application.routes.draw do
       resources :post_comments, only: [:create, :destroy]
       resource :likes, only: [:create, :destroy]
     end
-    resources :customers, only: [:index, :show, :edit, :update] do
+    resources :customers, only: [:index, :show, :edit] do
       member do
         #フォロー、フォロワー
         get :follows, :followers
         
         #いいね一覧
         get :liked_posts
+        patch :update
       end
       resource :relationships, only: [:create, :destroy]
     end

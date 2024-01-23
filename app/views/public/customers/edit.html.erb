@@ -1,8 +1,13 @@
 <h1>会員情報編集</h1>
 
-<%= form_with model: @customer,url: customers_my_page_path, method: :patch  do |f| %>
+<%= form_with model: @customer,url: customer_path, method: :patch  do |f| %>
+  
+  <div class="field">
+    <label for="inputImage">プロフィール画像</label>
+    <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
+  </div>
 
-<div class="field">
+  <div class="field">
     <%= f.label "(姓)" %><br />
     <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
   </div>
