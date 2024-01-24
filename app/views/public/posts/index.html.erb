@@ -10,7 +10,7 @@
 <div>
   <%= flash[:notice] %>
 </div>
-<%#= render partial: "customers/info", locals: {customer: current_customer }%>
+<%= render partial: "public/customers/info", locals: {customer: current_customer }%>
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
@@ -41,7 +41,7 @@
             <td>
              <%#= book.body %> 
             </td>
-            <td><%= render "public/likes/btn" %></td>
+            <td><%= render "public/likes/btn", post: post %></td>
           </tr>
         </tbody>
         <% end %>
