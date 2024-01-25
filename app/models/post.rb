@@ -15,7 +15,7 @@ class Post < ApplicationRecord
   end
   
   def liked_by?(customer)
-    likes.exists?(customer_id: customer_id)
+    likes.exists?(customer_id: customer.id)
   end
   
   # いいねをつけた投稿の取得

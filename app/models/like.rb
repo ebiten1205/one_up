@@ -6,6 +6,8 @@ class Like < ApplicationRecord
   
   after_create_commit :create_notifications
   
+  validates :customer_id, uniqueness: {scope: :post_id}
+  
   private
   
   def create_notifications
