@@ -28,6 +28,21 @@ class Public::PostsController < ApplicationController
     @post_comment = PostComment.new
   end
   
+  def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    flash[:notice] = "You have updated book successfully."
+    if @post.save
+      redirect_to post_path(@post.id)
+    else
+      render :edit
+    end
+  end
+  
+  def edit
+    @post = Post.find(params[:id])
+  end
+  
   def destroy
     post = Post.find(params[:id])
     post.destroy

@@ -5,7 +5,7 @@
  <div class="container">
    <div class="row">
      <div class="col-md-3">
-       <%#= render 'list', book: @book, user: @user %> 
+       <%= render 'public/customers/info' %> 
      </div>
      <div class="col-md-8 offset-md-1">
        <h2>投稿詳細</h2>
@@ -13,11 +13,11 @@
          <tbody>
            <tr>
              <td>
-               <%# link_to user_path(@book.user.id) do %>
-               <%#= image_tag @book.user.get_profile_image(100,100) %>
-               <%# end %>
+               <% link_to customer_path(@post.customer.id) do %>
+               <%= image_tag @post.customer.get_profile_image(100,100) %>
+               <% end %>
                <br>
-               <%#= link_to @book.user.name, user_path(@book.user.id) %>
+               <%= link_to @post.customer.name, customer_path(@post.customer.id) %>
              </td>
              <td>
                <%= @post.content %>
@@ -26,8 +26,9 @@
                <%= @post.place %>
              </td>
              <% if @post.customer == current_customer %>
-             <%#= link_to "Edit", edit_post_path(@post.id) %>
-             <%#= link_to "Destroy", post_path(@post.id), method: :delete %>
+             <%= link_to "投稿内容を編集する", edit_post_path(@post.id) %>
+             <br>
+             <%= link_to "投稿を削除する", post_path(@post.id), method: :delete %>
              <% end %>
            </tr>
          </tbody>

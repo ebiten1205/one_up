@@ -49,6 +49,8 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
+    resources :posts, only: [:edit, :index, :show, :destroy] do
+    end
     resources :customers, only: [:edit, :index, :show] do
     end
     resources :sessions, only: [:new, :index, :show, :edit, :create, :update] do

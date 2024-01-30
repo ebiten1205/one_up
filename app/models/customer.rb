@@ -19,6 +19,21 @@ class Customer < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :notifications, dependent: :destroy
   
+   #　フォローしたときの処理
+  def follow(customer_id)
+    follows.create(follow_id: customer_id)
+  end
+  
+  #　フォローを外すときの処理
+  def unfollow(customer_id)
+    followers.find_by(follower_id: customer_id).destroy
+  end
+  
+  #フォローしていればtrueを返す
+  def following?(customer)
+    following_customers.include?(customer)
+  end
+  
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/sample-author1.jpg')

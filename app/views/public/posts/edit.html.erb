@@ -1,0 +1,24 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+
+<h2>投稿内容編集</h2>
+
+<% if @post.errors.any? %>
+  <%= @post.errors.count %>errors prohibited this obj form being saved:
+  <ul>
+    <% @post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+<%= form_with model: @post do |f| %>
+  <label for="inputName">投稿内容</label><br>
+  <%= f.text_area :content, autofocus: true, id:"inputName", placeholder:"title"%><br>
+  <label for="inputName">場所</label><br>
+  <%= f.text_area :place, autofocus: true, id:"inputName", placeholder:"body"%><br>
+  <%= f.submit "変更を保存" %><br>
+  <%= link_to "Show", post_path(@post.id) %>  
+  <a class="back" href="/posts">Back</a>
+<% end %>
