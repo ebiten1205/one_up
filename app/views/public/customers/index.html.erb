@@ -1,2 +1,16 @@
-<td>フォロー<%= customer.followers.count %></td>
-<td>フォロワー<%= customer.follows.count %></td>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2>User info</h2>
+      <%= render 'info', customer: current_customer %>
+    </div>
+    <div class='col-md-8 offset-md-1'>
+      <h2>Customers</h2>
+      <%= render 'index',customers: @customers %>
+    </div>
+  </div>
+</div>
+
+
+<td>フォロー<%#= customer.followers.count %></td>
+<td>フォロワー<%#= customer.follows.count %></td>

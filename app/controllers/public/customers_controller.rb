@@ -1,6 +1,11 @@
 class Public::CustomersController < ApplicationController
   before_action :is_matching_login_customer, only: [:edit, :update]
   
+  def index
+    @customers = Customer.all
+    @post = Post.new
+  end
+  
    # 今回の場合はIDでデータを分けていないため、ログインしているcustomerという形で
   # 定義してあげるといい。ログインしているcustomer＝current_customer
   def show
