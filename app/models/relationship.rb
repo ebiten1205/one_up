@@ -10,20 +10,7 @@ class Relationship < ApplicationRecord
   
   after_create_commit :create_notifications
   
-  #　フォローしたときの処理
-  def follow(customer_id)
-    follows.create(follow_id: customer_id)
-  end
   
-  #　フォローを外すときの処理
-  def unfollow(customer_id)
-    followers.find_by(follower_id: customer_id).destroy
-  end
-  
-  #フォローしていればtrueを返す
-  def following?(customer)
-    following_customers.include?(customer)
-  end
   
   private
   

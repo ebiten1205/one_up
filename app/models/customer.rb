@@ -5,19 +5,24 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_one_attached :profile_image
+  
   # フォローをした、されたの関係
+  
   #自分がフォローする（与フォロー）側の関係性
   has_many :follows, class_name: "Relationship", foreign_key: "follow_id", dependent: :destroy
+  
   # 与フォロー関係を通じて参照→自分がフォローしている人
-  has_many :following_customers, through: :follows, source: :follow
+  has_many :following_customers, through: :follows, source: :follower
+  
   # 自分がフォローされる（被フォロー）側の関係性
   has_many :followers, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  
    # 被フォロー関係を通じて参照→自分をフォローしている人
-  has_many :follower_customers, through: :followers, source: :follower
+  has_many :follower_customers, through: :followers, source: :follow
 
   # 一覧画面で使う
-  has_many :following_customers, through: :follows, source: :follow
-  has_many :follower_customers, through: :followers, source: :follower
+  #has_many :following_customers, through: :follows, source: :follow
+  #has_many :follower_customers, through: :followers, source: :follower
 
          
   has_many :posts, dependent: :destroy
@@ -26,8 +31,8 @@ class Customer < ApplicationRecord
   has_many :notifications, dependent: :destroy
   
    #　フォローしたときの処理
-  def follow(customer)
-    follows.create(follow_id: customer_id)
+  def follow(customer_id)
+    follows.create(follower_id: customer_id)
   end
   
   #　フォローを外すときの処理
