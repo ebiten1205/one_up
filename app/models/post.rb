@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
   has_one_attached :image
   has_one :notification, as: :notificatable, dependent: :destroy
+  has_one :timeline, as: :timelineable_type, dependent: :destroy
+  has_many :rts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   belongs_to :genre
