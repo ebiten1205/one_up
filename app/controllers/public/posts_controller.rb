@@ -9,6 +9,15 @@ class Public::PostsController < ApplicationController
     @post = current_customer.posts.build(post_params)
     @post.genre_id = params[:post][:genre_id]
     if @post.save
+      #↓まずtimeline.post_idとtimeline.rt_idをsaveする
+      #次にタイムラインモデルを作り、タイムラインアブルに"post"を入れ、saveで保存する
+      #うまくタイムラインアブルに値を入れることができたらtimelinesのindex.html.erbに
+      #投稿などが表示されるはず
+      
+      # timeline をsaveする
+      # timeline = Timeline.new
+      # timeline.timelineable_type = "post"
+      # timeline.save
       flash[:notice] = "投稿に成功しました"
       redirect_to post_path(@post.id)
     else
@@ -52,7 +61,7 @@ class Public::PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:content, :place, :image, :genre_id)
+    params.require(:post).permit(:content, :place, :image, :genre_id, :timelineable_type)
   end
     
 end

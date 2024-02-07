@@ -61,7 +61,7 @@ class Public::CustomersController < ApplicationController
   # フォロワー一覧
   def followers
     @customer = Customer.find(params[:id])
-    @customer = @customer.follower_customers
+    @customers = @customer.follower_customers
   end
 	
 	private

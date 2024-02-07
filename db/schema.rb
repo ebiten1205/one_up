@@ -129,7 +129,8 @@ ActiveRecord::Schema.define(version: 2024_01_23_062309) do
 
   create_table "timelines", force: :cascade do |t|
     t.integer "customer_id", null: false
-    t.integer "timelineable_id", null: false
+    t.integer "post_id"
+    t.integer "rt_id"
     t.string "timelineable_type", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
