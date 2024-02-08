@@ -12,7 +12,7 @@ class Public::TimelinesController < ApplicationController
       @timelines = Post.where(customer_id:current_customer.follows.pluck(:follower_id))
       @timelines = Post.where(customer_id:current_customer.posts.pluck(:post_id))
     elsif params[:timelineable_type] == "rt"
-      @timelines = Timeline.includes(:timelineable).where(timelineable_type: "Rt")
+      @timelines = Timeline.includes(:timelineable).where(timelineable_type: "rt")
     else
     end
   end

@@ -8,11 +8,18 @@ class Public::PostsController < ApplicationController
     @post.customer_id = current_customer.id
     @post = current_customer.posts.build(post_params)
     @post.genre_id = params[:post][:genre_id]
-    if @post.save
+    if @post.save!
       #↓まずtimeline.post_idとtimeline.rt_idをsaveする
       #次にタイムラインモデルを作り、タイムラインアブルに"post"を入れ、saveで保存する
       #うまくタイムラインアブルに値を入れることができたらtimelinesのindex.html.erbに
       #投稿などが表示されるはず
+      #@post = timeline.post_id
+      #timeline.post_id.save
+      timeline = Timeline.new
+      timeline.post_id = @post.id
+      timeline.customer_id = current_customer.id
+      timeline.timelineable_type = "post"
+      timeline.save!
       
       # timeline をsaveする
       # timeline = Timeline.new
@@ -61,7 +68,7 @@ class Public::PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:content, :place, :image, :genre_id, :timelineable_type)
+    params.require(:post).permit(:content, :place, :image, :genre_id, :timelineable_type, :timeline)
   end
     
 end
