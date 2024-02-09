@@ -58,15 +58,31 @@ class Customer < ApplicationRecord
     last_name + first_name
   end
   
-  def self.search_for(content, search)
-    if search == 'perfect'
-      Customer.where(name: content)
-    elsif search == 'forward'
-      Customer.where('name LIKE ?', content + '%')
-    elsif search == 'backward'
-      Customer.where('name LIKE ?', '%' + content)
+  #def self.search_for(content, search)
+    #if search == 'perfect'
+      #Customer.where(name: content)
+    #elsif search == 'forward'
+      #Customer.where('name LIKE ?', content + '%')
+    #elsif search == 'backward'
+      #Customer.where('name LIKE ?', '%' + content)
+    #else
+      #Customer.where('name LIKE ?', '%' + content + '%')
+    #end
+  #end
+  
+  # 検索方法分岐
+  
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @customer = Customer.where("name LIKE?", "#{word}")
+    elsif search == "forward_match"
+      @customer = Customer.where("name LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @customer = Customer.where("name LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @customer = Customer.where("name LIKE?","%#{word}%")
     else
-      Customer.where('name LIKE ?', '%' + content + '%')
+      @customer = Customer.all
     end
   end
   

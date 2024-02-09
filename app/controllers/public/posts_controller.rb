@@ -19,6 +19,7 @@ class Public::PostsController < ApplicationController
       timeline.post_id = @post.id
       timeline.customer_id = current_customer.id
       timeline.timelineable_type = "post"
+      params[:timelineable_type] = "post"
       timeline.save!
       
       # timeline をsaveする

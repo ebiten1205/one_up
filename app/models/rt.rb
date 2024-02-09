@@ -1,4 +1,4 @@
-class Retweet < ApplicationRecord
+class Rt < ApplicationRecord
   belongs_to :customer
   belongs_to :post
   

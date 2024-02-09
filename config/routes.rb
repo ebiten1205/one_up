@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     #get'/'=>'public/homes#top'
     root to: "homes#top"
     get '/about' => 'homes#about', as: 'about'
+    get "/customers/unsubscribe"=>"customers#unsubscribe"
+    patch "/customers/withdrawal"=>"customers#withdrawal"
     #resources :の後にはテーブル名を記載。そのあとにonlyオプションでアクション名を記述。
     #注意　resourcesを使った場合にうまくアクションを認識できない場合がある。今回だとordersコントローラーが
     # 例でresourceにordersコントローラーを入れてしまうとなぜかshowアクションとしてconfirmationアクション認識されてしまうため、
@@ -44,8 +46,8 @@ Rails.application.routes.draw do
      # またルーティングを各順番にも気を付ける（上から順番に読まれる）。
      get '/search', to: 'searchs#search'
      get "/genres/search" => "searchs#genre_search"
-     get "/customers/unsubscribe"=>"customers#unsubscribe"
-     patch "/customers/withdrawal"=>"customers#withdrawal"
+     #get "/customers/unsubscribe"=>"customers#unsubscribe"
+     #patch "/customers/withdrawal"=>"customers#withdrawal"
      get '/timeline', to: 'timelines#index', as: 'timeline'
      delete "/notifications"=>"notifications#destroy"
   end
