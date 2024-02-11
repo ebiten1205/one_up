@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   has_many :rts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :post_comments, dependent: :destroy
-  belongs_to :timeline, optional: true, dependent: :destroy
+  belongs_to :timeline, polymorphic: true, optional: true, dependent: :destroy
   belongs_to :genre
   belongs_to :customer
   

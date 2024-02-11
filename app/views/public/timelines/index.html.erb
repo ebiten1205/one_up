@@ -1,7 +1,7 @@
 <% @timelines.each do |timeline| %>
-  <% if timeline.timelineable_type == "post" %>
+  <% if timeline.timelineable_type == "Post" %>
     <p>Post: <%= timeline.timelineable.content %></p>
-  <% elsif timeline.timelineable_type == "rt" %>
+  <% elsif timeline.timelineable_type == "Rt" %>
     <p>RT: <%= timeline.timelineable.post.content %></p>
   <% end %>
 <% end %>

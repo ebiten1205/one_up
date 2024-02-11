@@ -13,6 +13,7 @@
     <%= render "public/customers/index" %>
   <% else %>
     <!--検索対象モデルがCustomerではない時(= 検索対象モデルがPostの時) -->
+  <h2>Posts search for "<%= @word %>"</h2>
     <%= render "public/posts/index" %>
   <% end %>
 </table>

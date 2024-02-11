@@ -16,12 +16,24 @@ class Public::PostsController < ApplicationController
       #@post = timeline.post_id
       #timeline.post_id.save
       timeline = Timeline.new
-      timeline.post_id = @post.id
+      timeline.timelineable = @post
+      #timeline.post_id = @post.id
       timeline.customer_id = current_customer.id
-      timeline.timelineable_type = "post"
+      #timeline.timelineable_type = "post"
       params[:timelineable_type] = "post"
       timeline.save!
       
+      #ポリモーフィック関連付けで"timelineable"に自分がフォローしている人の"id"もpostのcreate時に一緒に入れるため、ここに記述
+      #follower_customersにしている理由は:follower_customers# 被フォロー関係を通じて参照→自分をフォローしている人にすることで
+      #自分がフォローしている人＝相手から見ると自分をフォローしている人（follower_customers)となるため
+      #表示するものはcurrent_customer.follower_customers（自分をフォローしている人の投稿（相互関係的に）になる）
+      current_customer.follower_customers.each do | customer | 
+        timeline = Timeline.new
+        timeline.timelineable = @post
+        timeline.customer_id = customer.id
+        timeline.save!
+      end
+        
       # timeline をsaveする
       # timeline = Timeline.new
       # timeline.timelineable_type = "post"

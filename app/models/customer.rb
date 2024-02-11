@@ -30,7 +30,7 @@ class Customer < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :notifications, dependent: :destroy
   has_many :rts, dependent: :destroy
-  
+  has_many :timelines, dependent: :destroy
    #　フォローしたときの処理
   def follow(customer_id)
     follows.create(follower_id: customer_id)
