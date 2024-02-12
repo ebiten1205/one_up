@@ -1,0 +1,20 @@
+- posts.each_with_index.reverse_each do |post, i|
+  %li.post
+    - if post.has_attribute?(:rt_customer_id)  # リポストを取得しない投稿一覧ページ（お気に入り一覧など）でも同じ部分テンプレートを利用しているため、この判定を入れている
+      - if post.rt_customer_id.present?
+        .post-rt
+          %i.fas.fa-retweet
+          = link_to post.rt_customer_name, "/customers/#{post.rt_customer_id}", "data-turbolinks": false
+          さんがリポスト
+    .post-container
+      .post-left
+        = link_to customer_path(post.customer.id), "data-turbolinks": false do
+          - if post.customer.image.attached?
+            = image_tag(post.customer.image, alt: 'デフォルトアイコン')
+          - else
+            = image_tag('sample/default_icon.png', alt: 'デフォルトアイコン')
+      .post-right
+        = render partial: "posts/index", locals: {post: post}
+        = link_to "#{post.post_comments.count} コメント", post_path(post.id)
+  - if i != 0
+    %hr

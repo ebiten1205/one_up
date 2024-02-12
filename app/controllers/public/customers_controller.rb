@@ -1,5 +1,6 @@
 class Public::CustomersController < ApplicationController
   before_action :is_matching_login_customer, only: [:edit, :update]
+  #before_action :set_customer
   
   def index
     @customers = Customer.all
@@ -13,6 +14,7 @@ class Public::CustomersController < ApplicationController
     @posts = @customer.posts.page(params[:page])
     @following_customers = @customer.following_customers
     @follower_customers = @customer.follower_customers
+    #@posts = @customer.posts_with_rts
   end
   
   def withdrawal
@@ -76,5 +78,9 @@ class Public::CustomersController < ApplicationController
 	    redirect_to root_path
 	  end
 	end
+	
+	#def set_customer
+	  #@customer = Customer.finf(params[:id])
+	#end
 	
 end

@@ -46,6 +46,20 @@ class Customer < ApplicationRecord
     following_customers.include?(customer)
   end
   
+  #def reposted?(post_id)
+      #self.rts.where(post_id: post_id).exits?
+  #end
+  
+  #def posts_with_reposts
+  #relation = Post.joins("LEFT OUTER JOIN rts ON posts.id = rts.post_id AND rts.customer_id = #{self.id}")
+                 #.select("posts.*, rts.customer_id AS rt_customer_id, (SELECT name FROM customers WHERE id = rt_customer_id) AS rt_customer_name")
+  #relation.where(customer_id: self.id)
+          #.or(relation.where("rts.customer_id = ?", self.id))
+          #.with_attached_images
+          #.preload(:customer, :post_comments, :likes, :rts)
+          #.order(Arel.sql("CASE WHEN rts.created_at IS NULL THEN posts.created_at ELSE rts.created_at END"))
+  #end
+  
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/sample-author1.jpg')

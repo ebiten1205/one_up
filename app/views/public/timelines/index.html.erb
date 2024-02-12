@@ -1,7 +1,9 @@
 <% @timelines.each do |timeline| %>
   <% if timeline.timelineable_type == "Post" %>
     <p>Post: <%= timeline.timelineable.content %></p>
+    <%= link_to "リツイート", post_rts_path(post_id: timeline.timelineable.id), method: :post %>
   <% elsif timeline.timelineable_type == "Rt" %>
     <p>RT: <%= timeline.timelineable.post.content %></p>
+    <%= link_to "リツイートを削除", post_rt_path(post_id: timeline.timelineable.post.id, id: timeline.timelineable.id),  method: :delete %>
   <% end %>
 <% end %>
