@@ -10,7 +10,7 @@
     <% @customers.each do |customer| %>
       <tr>
         <td><%= image_tag customer.get_profile_image(50,50) %></td>
-        <td><%= customer.name %></td>
+        <td><%= customer.last_name %><% customer.first_name %></td>
         <td><%= render "public/relationships/btn", customer: customer %></td>
         <td><%= link_to 'Show', customer, class: "customer_#{customer.id}" %></td>
       </tr>

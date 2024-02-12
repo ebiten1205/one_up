@@ -88,13 +88,13 @@ class Customer < ApplicationRecord
   
   def self.looks(search, word)
     if search == "perfect_match"
-      @customer = Customer.where("name LIKE?", "#{word}")
+      @customer = Customer.where("first_name LIKE? or last_name LIKE?", "#{word}", "#{word}")
     elsif search == "forward_match"
-      @customer = Customer.where("name LIKE?","#{word}%")
+      @customer = Customer.where("first_name LIKE? or last_name LIKE?", "#{word}" + "%", "#{word}" + "%")
     elsif search == "backward_match"
-      @customer = Customer.where("name LIKE?","%#{word}")
+      @customer = Customer.where("first_name LIKE? or last_name LIKE?",  "%" + "#{word}", "%" +  "#{word}")
     elsif search == "partial_match"
-      @customer = Customer.where("name LIKE?","%#{word}%")
+      @customer = Customer.where("first_name LIKE? or last_name LIKE?",  "%" + "#{word}" + "%",  "%" + "#{word}" + "%")
     else
       @customer = Customer.all
     end
