@@ -80,7 +80,7 @@ class Public::CustomersController < ApplicationController
 	end
 	
 	#def set_customer
-	  #@customer = Customer.finf(params[:id])
+	  #@customer = Customer.find(params[:id])
 	#end
 	
 end
