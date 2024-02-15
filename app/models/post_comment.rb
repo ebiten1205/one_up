@@ -11,6 +11,7 @@ class PostComment < ApplicationRecord
     private
     
     def create_notifications
-      Notification.create(notificatable: self, customer: self.customer, action_type: :commented_to_own_post)
+      Notification.create(notificatable: self, customer: self.post.customer, action_type: :commented_to_own_post)
+      
     end
 end
