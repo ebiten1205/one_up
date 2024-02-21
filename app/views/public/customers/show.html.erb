@@ -36,16 +36,14 @@
     </div>
     <div class="row">
         <div class="col-lg-2">
-            <h4>注文履歴</h4>
+            <h4>投稿履歴一覧</h4>
         </div>
         <div class="col-lg-1">
             <div class="link_index">
-                <%#= link_to "一覧を見る", orders_path, class: "btn btn-info" %>
+                <% @posts.each do |post| %>
+                <li><%= link_to post.content, post_path(post) %></li>
+                <% end %>
             </div>
         </div>
     </div>
 </div>
-
-<% @customer.posts.each do |post| %>
-  <p><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p>
-<% end %>
