@@ -65,6 +65,8 @@ gem 'kaminari','~> 1.2.1'
 
 gem 'bootstrap5-kaminari-views'
 
+gem 'jquery-rails'
+
 gem "haml-rails"
 
 gem 'dotenv-rails'
