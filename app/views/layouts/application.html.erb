@@ -12,22 +12,10 @@
   </head>
 
   <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          <a class="navbar-brand" href="/">
-            <span>ONE UP</span>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse"
-          data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-
-          expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-          </div>
-        </div>
-      </nav>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
       <% if customer_signed_in? %>
         <% @customer = current_customer %>
       <% end %>
@@ -77,12 +65,13 @@
       </li>
       <% end %>
       </ul>
+        </nav>
       </div>
-      </div>
-      </nav>
     </header>
+    <div class="container">
     <%= render 'public/searchs/search' %>
     <%= yield %>
+    </div>
   </body>
 
 </html>
