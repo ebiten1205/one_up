@@ -2,16 +2,7 @@ class Public::SearchsController < ApplicationController
   before_action :authenticate_customer!
 
 	def search
-		#@model = params[:model]
-		#@content = params[:content]
-		#@search = params[:search]
-		#if @model == 'customer'
-			#@records = Customer.search_for(@content, @search)
-		#else
-			#@records = Post.search_for(@content, @search)
-		#end
-		
-		@range = params[:range]
+	@range = params[:range]
     @word = params[:word]
 
     if @range == "Customer"

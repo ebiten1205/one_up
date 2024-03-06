@@ -1,7 +1,6 @@
 class Public::CustomersController < ApplicationController
   before_action :is_matching_login_customer, only: [:edit, :update]
-  #before_action :set_customer
-  
+
   def index
     @customers = Customer.all
     @post = Post.new
@@ -26,19 +25,11 @@ class Public::CustomersController < ApplicationController
   end
   
   def edit
-    #@customer = current_customer
     @customer = Customer.find(params[:id])
-    #if @customer.id != current_customer.id
-	    #redirect_to root_path
-    #end
   end
 # findメソッドは:idのようにidを探すときに使えるものである。
   def update
-		#@customer = current_customer
 		@customer = Customer.find(params[:id])
-		#unless customer.id = current_customer.id
-		  #redirect_to root_path
-		#end
 		if @customer.update(customer_params)
 			if customer_signed_in?
 				flash[:notice] = "登録情報が更新されました。"
@@ -78,9 +69,5 @@ class Public::CustomersController < ApplicationController
 	    redirect_to root_path
 	  end
 	end
-	
-	#def set_customer
-	  #@customer = Customer.find(params[:id])
-	#end
 	
 end
