@@ -29,18 +29,6 @@ class Post < ApplicationRecord
     .per(per_page) # 6. ページごとのデータ数を指定
   end
   
-  #def self.search_for(content, search)
-    #if search == 'perfect'
-      #Post.where(content: content)
-    #elsif search == 'forward'
-      #Post.where('content LIKE ?', content+'%')
-    #elsif search == 'backward'
-      #Post.where('content LIKE ?', '%'+content)
-    #else
-      #Post.where('content LIKE ?', '%'+content+'%')
-    #end
-  #end
-  
   # 検索方法分岐
   
   def self.looks(search, word)

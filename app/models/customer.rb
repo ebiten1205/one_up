@@ -20,10 +20,6 @@ class Customer < ApplicationRecord
    # 被フォロー関係を通じて参照→自分をフォローしている人
   has_many :follower_customers, through: :followers, source: :follow
 
-  # 一覧画面で使う
-  #has_many :following_customers, through: :follows, source: :follow
-  #has_many :follower_customers, through: :followers, source: :follower
-
          
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
@@ -71,18 +67,6 @@ class Customer < ApplicationRecord
   def name
     last_name + first_name
   end
-  
-  #def self.search_for(content, search)
-    #if search == 'perfect'
-      #Customer.where(name: content)
-    #elsif search == 'forward'
-      #Customer.where('name LIKE ?', content + '%')
-    #elsif search == 'backward'
-      #Customer.where('name LIKE ?', '%' + content)
-    #else
-      #Customer.where('name LIKE ?', '%' + content + '%')
-    #end
-  #end
   
   # 検索方法分岐
   

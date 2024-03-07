@@ -7,7 +7,6 @@ class Relationship < ApplicationRecord
   belongs_to :follower, class_name: "Customer"
   
   has_one :notification, as: :notificatable, dependent: :destroy
-  #has_one :timeline, as: timelineable_type, dependent: :destroy
   
   after_create_commit :create_notifications
   
