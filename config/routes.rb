@@ -48,8 +48,6 @@ Rails.application.routes.draw do
      get '/search', to: 'searchs#search'
      get "/genre/genre_search" => "genres#genre_search"
      get "/genre/search" => "searchs#genre_search"
-     #get "/customers/unsubscribe"=>"customers#unsubscribe"
-     #patch "/customers/withdrawal"=>"customers#withdrawal"
      get '/timeline', to: 'timelines#index', as: 'timeline'
      delete "/notifications"=>"notifications#destroy"
   end
