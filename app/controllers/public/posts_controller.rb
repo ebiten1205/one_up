@@ -9,7 +9,7 @@ class Public::PostsController < ApplicationController
     @post = current_customer.posts.build(post_params)
     @post.genre_id = params[:post][:genre_id]
     if @post.save!
-      #↓まずtimeline.post_idとtimeline.rt_idをsaveする
+      #↓まずtimeline.post_idとtimeline.rt_idをsaveらいらいする
       #次にタイムラインモデルを作り、タイムラインアブルに"post"を入れ、saveで保存する
       #うまくタイムラインアブルに値を入れることができたらtimelinesのindex.html.erbに
       #投稿などが表示されるはず
