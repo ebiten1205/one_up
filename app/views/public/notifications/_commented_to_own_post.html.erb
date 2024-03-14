@@ -1,6 +1,6 @@
 <%= link_to transition_path(notification) do %>
   <div>
-    <%= link_to notification.notificatable.customer.first_name, customer_path(notification.notificatable.customer) %>
+    <%= link_to notification.notificatable.customer.last_name, customer_path(notification.notificatable.customer) %>
     があなたの
     <%= link_to '投稿', post_path(notification.notificatable.post) %>
     にコメントしました
