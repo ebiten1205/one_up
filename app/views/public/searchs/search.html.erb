@@ -1,11 +1,3 @@
-<%# if @model == 'customer' %>
-	<h3>Customers search for "<%#= @content %>"</h3>
-  <%#= render 'customers/index', customers: @records %>
-<%# elsif @model == 'post' %>
-	<h3>Posts search for "<%#= @content %>"</h3>
-  <%#= render 'public/posts/index', posts: @records %>
-<%# end %>
-
 <table class="table table-hover table-inverse">
   <!--検索対象モデルがCustomerの時 -->
   <% if @range == "Customer" %>
