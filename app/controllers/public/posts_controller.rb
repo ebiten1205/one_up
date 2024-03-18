@@ -13,13 +13,9 @@ class Public::PostsController < ApplicationController
       #次にタイムラインモデルを作り、タイムラインアブルに"post"を入れ、saveで保存する
       #うまくタイムラインアブルに値を入れることができたらtimelinesのindex.html.erbに
       #投稿などが表示されるはず
-      #@post = timeline.post_id
-      #timeline.post_id.save
       timeline = Timeline.new
       timeline.timelineable = @post
-      #timeline.post_id = @post.id
       timeline.customer_id = current_customer.id
-      #timeline.timelineable_type = "post"
       params[:timelineable_type] = "post"
       timeline.save!
       
@@ -33,11 +29,7 @@ class Public::PostsController < ApplicationController
         timeline.customer_id = customer.id
         timeline.save!
       end
-        
-      # timeline をsaveする
-      # timeline = Timeline.new
-      # timeline.timelineable_type = "post"
-      # timeline.save
+
       flash[:notice] = "投稿に成功しました"
       redirect_to post_path(@post.id)
     else
