@@ -13,7 +13,6 @@ class Public::CustomersController < ApplicationController
     @posts = @customer.posts.page(params[:page])
     @following_customers = @customer.following_customers
     @follower_customers = @customer.follower_customers
-    #@posts = @customer.posts_with_rts
   end
   
   def withdrawal
