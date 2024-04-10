@@ -29,7 +29,6 @@ Rails.application.routes.draw do
       resources :rts, only: [:create, :destroy]
       resource :likes, only: [:create, :destroy]
     end
-    #resources :rts, only: [:create, :destroy]
     resources :customers, only: [:index, :show, :edit] do
       member do
         #フォロー、フォロワー
