@@ -10,8 +10,6 @@ class Relationship < ApplicationRecord
   
   after_create_commit :create_notifications
   
-  
-  
   private
   
   def create_notifications

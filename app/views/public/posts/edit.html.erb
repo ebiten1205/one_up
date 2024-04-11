@@ -4,6 +4,9 @@
 
 <h2>投稿内容編集</h2>
 
+<div>
+  <%= flash[:notice] %>
+</div>
 <% if @post.errors.any? %>
   <%= @post.errors.count %>errors prohibited this obj form being saved:
   <ul>
