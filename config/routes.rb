@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   
   # moduleはURLに、今回でいうとpublicをつけないようにできる。
   scope module: :public do
-    #get'/'=>'public/homes#top'
     root to: "homes#top"
     get '/about' => 'homes#about', as: 'about'
     get "/customers/unsubscribe"=>"customers#unsubscribe"
