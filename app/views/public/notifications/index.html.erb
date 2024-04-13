@@ -1,3 +1,6 @@
+<div>
+  <%= flash[:notice] %>
+</div>
 <h4>通知</h4>
   <% if @notifications.present? %>
     <%= link_to "全削除", notifications_path, method: :delete,class:"btn btn-light" %>
