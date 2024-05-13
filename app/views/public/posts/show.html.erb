@@ -25,7 +25,7 @@
              <td>
                <%= @post.place %>
              </td>
-             <% if @post.customer == current_customer %>
+             <% if customer_signed_in? && current_customer.id == @post.customer_id %>
              <%= link_to "投稿内容を編集する", edit_post_path(@post.id) %>
              <br>
              <%= link_to "投稿を削除する", post_path(@post.id), method: :delete %>
