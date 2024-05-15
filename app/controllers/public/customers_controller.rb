@@ -25,6 +25,11 @@ class Public::CustomersController < ApplicationController
   
   def edit
     @customer = Customer.find(params[:id])
+    if @customer.customer == current_customer
+       render "edit"
+    else
+       redirect_to posts_path
+    end
   end
 # findメソッドは:idのようにidを探すときに使えるものである。
   def update

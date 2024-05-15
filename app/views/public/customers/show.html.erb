@@ -9,7 +9,9 @@
             <h4>会員情報</h4>
         </div>
         <div class="col-lg-1">
-                <%= link_to "編集する", edit_customer_path, class: "btn btn-info"%>
+            <% if @customer.id == current_customer.id %>
+              <%= link_to "編集する", edit_customer_path, class: "btn btn-info"%>
+            <% end %>
         </div>
     </div>
     <div class="row">
