@@ -31,6 +31,7 @@ class Public::CustomersController < ApplicationController
        redirect_to posts_path
     end
   end
+  
 # findメソッドは:idのようにidを探すときに使えるものである。
   def update
 		@customer = Customer.find(params[:id])
