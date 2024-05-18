@@ -1,3 +1,14 @@
+<h2>User info</h2>
+<tr>
+  <th class="col-lg-2 active">プロフィール画像</th><br>
+    <td><%= image_tag customer.get_profile_image(50,50) %></td>
+  </tr>
+  <br>
+  <tr>
+    <th class="col-lg-2 active">氏名</th>
+  <td><%= customer.last_name %> <%= customer.first_name %></td>
+</tr>
+<br>
 <th>Follows</th>
       <td>
         <%= link_to follows_customer_path(customer) do %>
