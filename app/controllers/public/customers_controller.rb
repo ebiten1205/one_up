@@ -25,7 +25,7 @@ class Public::CustomersController < ApplicationController
   
   def edit
     @customer = Customer.find(params[:id])
-    if @customer.customer == current_customer
+    if @customer.id == current_customer.id
        render "edit"
     else
        redirect_to posts_path
