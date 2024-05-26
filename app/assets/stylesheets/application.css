@@ -27,7 +27,7 @@
 }
 
 .top-image {
-  background-image: url("sakura.jpg");
+  background-image: image-url("sakura.jpg");
   background-position: center;
   background-size: cover;
   height: 600px;
