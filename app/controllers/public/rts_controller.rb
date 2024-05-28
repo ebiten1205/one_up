@@ -1,10 +1,9 @@
 class Public::RtsController < ApplicationController
   before_action :set_post
   
-  #リツイート機能に関してもtimeline.timelineable = @rtというようにポリモーフィック関連付けで
-  #timelineableにrt_idを入れるようにcreateすることでtimelines/index.html.erbの方に表示することができる
   
-  def create # リポストボタンを押下すると、押したユーザと押した投稿のIDよりrepostsテーブルに登録する
+  
+  def create 
     @rt = Rt.new(customer_id: current_customer.id, post_id: params[:post_id])
     if @rt.save!
       
@@ -21,7 +20,7 @@ class Public::RtsController < ApplicationController
     end
   end
   
-  def destroy # 既にリポストした投稿のリポストボタンを再度押下すると、リポストを取り消す（=テーブルからデータを削除する）
+  def destroy 
     @rt = Rt.find(params[:id])
     @rt.destroy!
     @timelines = Timeline.all
@@ -29,7 +28,7 @@ class Public::RtsController < ApplicationController
   end
   
   private
-  def set_post  # リポストボタンを押した投稿を特定する
+  def set_post  
     @post = Post.find(params[:post_id])
     if @post.nil?
       redirect_to root_path, alert: '該当の投稿が見つかりません'

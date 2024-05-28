@@ -19,7 +19,7 @@
       <% if customer_signed_in? %>
         <% @customer = current_customer %>
       <% end %>
-      <!-- 今回の場合、ログアウト中は管理者側も会員側もヘッダーは同じなので以下のようにそれぞれログイン中のヘッダーだけ切り替えるように設定する。-->
+
       <% if admin_signed_in? %>
       <li>
         <%= link_to "投稿一覧", admin_posts_path %>

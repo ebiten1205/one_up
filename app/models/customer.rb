@@ -56,10 +56,6 @@ class Customer < ApplicationRecord
   
   # 検索方法分岐
   
-  #〇〇 LIKE?に関してはSQLというデータベースから該当するものを探すようなきじゅつである（詳しくはサイトで調べた方がいい）
-  # LIKE?のあとに2つ以上のものを探してもらうには以下の記述のように "or"と記述することでできる。
-  #　"#{word}" + "%"　のように"%"とは値を代入する部分で、記述場所によって意味が変わるため
-  #　以下の"forward_match"や"backward_match"のように後方検索なら配列の後ろに付け、前方なら前につけるなど記述場所が重要である（詳しくはサイトで調べる）
   def self.looks(search, word)
     if search == "perfect_match"
       @customer = Customer.where("first_name LIKE? or last_name LIKE?", "#{word}", "#{word}")
@@ -74,8 +70,4 @@ class Customer < ApplicationRecord
     end
   end
   
-  # is_deletedがfalseならtrueを返すようにしている
-  # def active_for_authentication?
-  #   super && (is_deleted == false)
-  # end
 end
