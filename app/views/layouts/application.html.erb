@@ -21,37 +21,41 @@
       <% end %>
 
       <% if admin_signed_in? %>
-      <li>
-        <%= link_to "投稿一覧", admin_posts_path %>
-      </li>
-      <li>
-        <%= link_to "会員一覧", admin_customers_path %>
-      </li>
-      <li>
-        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-      </li>
-      <li>
-        <%= link_to "ジャンル", admin_genres_path %>
-      </li>
+        <div class="admin-header">
+          <li>
+            <%= link_to "投稿一覧", admin_posts_path %>
+          </li>
+          <li>
+            <%= link_to "会員一覧", admin_customers_path %>
+          </li>
+          <li>
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+          </li>
+          <li>
+            <%= link_to "ジャンル", admin_genres_path %>
+          </li>
+        </div>
       <% elsif customer_signed_in? %>
-      <li>
-        <%= link_to "マイページ", customer_path(@customer) %>
-      </li>
-      <li>
-        <%= link_to "投稿一覧", posts_path %>
-      </li>
-      <li>
-        <%= link_to "会員一覧", customers_path %>
-      </li>
-      <li>
-        <%= link_to "ジャンル一覧", genre_genre_search_path %>
-      </li>
-      <li>
-        <%= link_to "新規投稿", new_post_path %>
-      </li>
-      <li>
-        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-      </li>
+        <div class="header-bottom">
+          <li>
+           <%= link_to "マイページ", customer_path(@customer) %>
+          </li>
+          <li>
+           <%= link_to "投稿一覧", posts_path %>
+          </li>
+          <li>
+            <%= link_to "会員一覧", customers_path %>
+          </li>
+          <li>
+           <%= link_to "ジャンル一覧", genre_genre_search_path %>
+          </li>
+          <li>
+           <%= link_to "新規投稿", new_post_path %>
+          </li>
+          <li>
+            <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+          </li>
+        </div>
       <%= render 'layouts/header' %>
       <% else %>
       <li>
