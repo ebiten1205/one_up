@@ -58,6 +58,8 @@
         </div>
       <%= render 'layouts/header' %>
       <% else %>
+      <div class="header-bottom">
+            <ul class="nav nav-pills nav-justified">
       <li>
         <%= link_to "About", about_path %>
       </li>
@@ -67,6 +69,8 @@
       <li>
         <%= link_to "ログイン", new_customer_session_path %>
       </li>
+      </ul>
+      </div>
       <% end %>
       </ul>
         </nav>
