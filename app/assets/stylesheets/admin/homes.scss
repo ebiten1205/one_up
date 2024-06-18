@@ -1,3 +1,20 @@
 // Place all the styles related to the admin/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.wrapper {
+  width: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1170px;
+}
+
+.top-image {
+  background-image: url("/images/sakura.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 800px;
+}
