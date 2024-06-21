@@ -71,6 +71,32 @@ p {
 
 /* header */
 
+.header-bottom {
+  height: 200px;
+    ul{
+      padding: 10px 10px;
+      text-align: center;
+      width: 100%;
+      a{
+        color: #75655d;
+      }
+    }
+  }
+}
+
+.admin-header {
+  height: 200px;
+    ul{
+      padding: 10px 10px;
+      text-align: center;
+      width: 100%;
+      a{
+        color: #75655d;
+      }
+    }
+  }
+}
+
 #logo {
   float: left;
   margin-right: 10px;
