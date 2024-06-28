@@ -15,23 +15,23 @@
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
         <nav>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav-list">
       <% if customer_signed_in? %>
         <% @customer = current_customer %>
       <% end %>
 
       <% if admin_signed_in? %>
         <div class="admin-header">
-          <li>
+          <li class="nav-list-item">
             <%= link_to "投稿一覧", admin_posts_path %>
           </li>
-          <li>
+          <li class="nav-list-item">
             <%= link_to "会員一覧", admin_customers_path %>
           </li>
-          <li>
+          <li class="nav-list-item">
             <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
           </li>
-          <li>
+          <li class="nav-list-item">
             <%= link_to "ジャンル", admin_genres_path %>
           </li>
         </div>
