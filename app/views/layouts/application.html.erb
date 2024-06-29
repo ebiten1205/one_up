@@ -37,22 +37,22 @@
         </div>
       <% elsif customer_signed_in? %>
         <div class="header-bottom">
-          <li>
+          <li class="nav-list-item">
            <%= link_to "マイページ", customer_path(@customer) %>
           </li>
-          <li>
+          <li class="nav-list-item">
            <%= link_to "投稿一覧", posts_path %>
           </li>
-          <li>
+          <li class="nav-list-item">
             <%= link_to "会員一覧", customers_path %>
           </li>
-          <li>
+          <li class="nav-list-item">
            <%= link_to "ジャンル一覧", genre_genre_search_path %>
           </li>
-          <li>
+          <li class="nav-list-item">
            <%= link_to "新規投稿", new_post_path %>
           </li>
-          <li>
+          <li class="nav-list-item">
             <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
           </li>
         </div>
@@ -60,13 +60,13 @@
       <% else %>
       <div class="header-bottom">
             <ul class="nav nav-pills nav-justified">
-      <li>
+      <li class="nav-list-item">
         <%= link_to "About", about_path %>
       </li>
-      <li>
+      <li class="nav-list-item">
         <%= link_to "新規登録", new_customer_registration_path %>
       </li>
-      <li>
+      <li class="nav-list-item">
         <%= link_to "ログイン", new_customer_session_path %>
       </li>
       </ul>
