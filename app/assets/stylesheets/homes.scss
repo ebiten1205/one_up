@@ -66,3 +66,10 @@ header .heading { /* headerタグ内のheadingクラスにのみ反映される 
   margin: 0 20px;
 }
 
+.top-image {
+  background-image: url("sakura.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 600px;
+}
+
