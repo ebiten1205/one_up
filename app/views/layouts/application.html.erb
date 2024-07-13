@@ -58,21 +58,21 @@
         </div>
       <%= render 'layouts/header' %>
       <% else %>
-      <div class="header-bottom">
-            <ul class="nav nav-pills nav-justified">
-      <li class="nav-list-item">
-        <%= link_to "About", about_path %>
-      </li>
-      <li class="nav-list-item">
-        <%= link_to "新規登録", new_customer_registration_path %>
-      </li>
-      <li class="nav-list-item">
-        <%= link_to "ログイン", new_customer_session_path %>
-      </li>
-      </ul>
-      </div>
+        <div class="header-bottom">
+        <ul class="nav nav-pills nav-justified">
+          <li class="nav-list-item">
+            <%= link_to "About", about_path %>
+          </li>
+          <li class="nav-list-item">
+            <%= link_to "新規登録", new_customer_registration_path %>
+          </li>
+          <li class="nav-list-item">
+            <%= link_to "ログイン", new_customer_session_path %>
+          </li>
+        </ul>
+        </div>
       <% end %>
-      </ul>
+        </ul>
       </nav>
       </div>
     </header>
