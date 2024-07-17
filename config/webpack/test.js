@@ -6,3 +6,4 @@ module.exports = environment.toWebpackConfig()
 
 console.log('test');
 console.log(1+1);
+window.alert('おはようございます。');
