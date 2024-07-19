@@ -9,8 +9,11 @@ console.log(1+1);
 window.alert('おはようございます。');
 document.getElementById('choice').textContent = new Date();
 console.log(document.getElementById('choice').textContent);
-if(window.confirm('ゲームスタート！準備はいい？')) {
-  console.log('ゲームを開始します。');
+const answer = window.prompt('ヘルプを見ますか？');
+if (answer === 'yes') {
+  window.alert('タップでジャンプ、障害物をよけます。');
+} else if(answer === 'no') {
+  window.alert('ゲーム起動中．．．');
 } else {
-  console.log('ゲームを終了します。');
+  window.alert('yesかnoでお答えください。');
 }
