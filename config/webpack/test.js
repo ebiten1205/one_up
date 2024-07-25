@@ -65,3 +65,21 @@ console.log('コーヒーメーカーの値段は' + total(8000) + '円（税込
 document.getElementById('output').textContent = 'コーヒーメーカーの値段は' + total(8000) + '円（税込）です。';
 document.getElementById('output2').textContent = 'コーヒーフィルタの値段は' + total(200) + '円（税込）です。';
 document.getElementById('output3').textContent = 'コーヒー豆の値段は' + total(1000) + '円（税込）です。';
+
+function fizzbuzz(num) {
+  if(num % 3 === 0 && num % 5 === 0) {
+    return 'fizzbuzz';
+  } else if(num % 3 === 0) {
+    return 'fizz';
+  } else if(num % 5 === 0) {
+    return 'buzz';
+  } else {
+    return num;
+  }
+}
+
+let i = 1;
+while(i <= 30) {
+  console.log(fizzbuzz(i));
+  i += 1;
+}
