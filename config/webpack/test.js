@@ -89,3 +89,4 @@ for(let item of todo) {
   const li = `<li>${item}</li>`;
   document.getElementById('list').insertAdjacentHTML('beforeend', li);
 }
+let jsbook = {title: 'JavaScript入門', price: 2500, stock: 3};
