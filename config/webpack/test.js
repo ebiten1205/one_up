@@ -95,3 +95,16 @@ document.getElementById('form').onsubmit = function(event) {
   const search = document.getElementById('form').word.value;
   document.getElementById('output').textContent = `[${search}]の検索中...`;
 };
+
+const now = new Date();
+const year = now.getFullYear();
+const month = now.getMonth();
+const date = now.getDate();
+const hour = now.getHours();
+const min = now.getMinutes();
+let ampm ='';
+if(hour < 12) {
+  ampm = 'a.m.';
+} else {
+  ampm = 'p.m.';
+}
