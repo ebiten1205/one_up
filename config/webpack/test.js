@@ -4,6 +4,9 @@ const environment = require('./environment')
 
 module.exports = environment.toWebpackConfig()
 
+<script>
+'use strict';
+
 console.log('test');
 console.log(1+1);
 window.alert('おはようございます。');
@@ -108,3 +111,5 @@ if(hour < 12) {
 } else {
   ampm = 'p.m.';
 }
+
+</script>
