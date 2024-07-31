@@ -4,7 +4,7 @@ const environment = require('./environment')
 
 module.exports = environment.toWebpackConfig()
 
-<script>
+/*<script>
 'use strict';
 
 console.log('test');
@@ -113,3 +113,4 @@ if(hour < 12) {
 }
 
 </script>
+*/
