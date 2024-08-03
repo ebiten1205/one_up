@@ -5,6 +5,7 @@ const environment = require('./environment')
 module.exports = environment.toWebpackConfig()
 
 /*<script>
+
 'use strict';
 
 console.log('test');
