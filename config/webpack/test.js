@@ -4,6 +4,12 @@ const environment = require('./environment')
 
 module.exports = environment.toWebpackConfig()
 
+/* 
+<section>
+  <p>いまから<span id="timer"></span>以内に注文すると50%オフ！</p>
+</section>
+*/
+
 /*<script>
 
 'use strict';
