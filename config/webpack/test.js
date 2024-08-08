@@ -5,7 +5,9 @@ const environment = require('./environment')
 module.exports = environment.toWebpackConfig()
 
 /*<section>
-  <p>いまから<span id="timer"></span>以内に注文すると50%オフ！</p>
+<h2><span>知ってました？</span><br>
+  2025年大阪万博開催まで</h2>
+<p class="timer">あと<span id="day"></span>日<span id="hour"></span>時間<span id="min"></span>分<span id="sec"></span>秒</p>
 </section>
 */
 
