@@ -19,6 +19,7 @@ console.log('test');
 console.log('test2');
 console.log(2+2);
 console.log(1+1);
+window.alert('こんにちは！');
 window.alert('おはようございます。');
 document.getElementById('choice').textContent = new Date();
 console.log(document.getElementById('choice').textContent);
