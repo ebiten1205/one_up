@@ -21,6 +21,7 @@ console.log(2+2);
 console.log(1+1);
 window.alert('こんにちは！');
 window.alert('おはようございます。');
+document.getElementById('test').textContent = new Date();
 document.getElementById('choice').textContent = new Date();
 console.log(document.getElementById('choice').textContent);
 const answer = window.prompt('ヘルプを見ますか？');
