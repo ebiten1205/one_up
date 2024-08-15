@@ -23,6 +23,7 @@ window.alert('こんにちは！');
 window.alert('おはようございます。');
 document.getElementById('test').textContent = new Date();
 document.getElementById('choice').textContent = new Date();
+console.log(document.getElementById('test').textContent);
 console.log(document.getElementById('choice').textContent);
 const answer = window.prompt('ヘルプを見ますか？');
 if (answer === 'yes') {
