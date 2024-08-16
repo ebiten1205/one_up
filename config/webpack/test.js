@@ -25,6 +25,7 @@ document.getElementById('test').textContent = new Date();
 document.getElementById('choice').textContent = new Date();
 console.log(document.getElementById('test').textContent);
 console.log(document.getElementById('choice').textContent);
+const answer = window.prompt('判断');
 const answer = window.prompt('ヘルプを見ますか？');
 if (answer === 'yes') {
   window.alert('タップでジャンプ、障害物をよけます。');
