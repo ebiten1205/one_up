@@ -20,6 +20,7 @@ console.log('test2');
 console.log('test3');
 console.log(2+2);
 console.log(1+1);
+console.log(3+3);
 window.alert('こんにちは！');
 window.alert('おはようございます。');
 document.getElementById('test').textContent = new Date();
