@@ -23,6 +23,7 @@ console.log(1+1);
 console.log(3+3);
 window.alert('こんにちは！');
 window.alert('おはようございます。');
+window.alert('おはすみなさい。');
 document.getElementById('test').textContent = new Date();
 document.getElementById('choice').textContent = new Date();
 console.log(document.getElementById('test').textContent);
