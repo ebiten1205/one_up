@@ -157,7 +157,7 @@ function countdown(due) {
   return count;
 }
 
-const goal = new Date(2025, 4, 3);
+const goal = new Date(2025, 5, 3);
 
 function recalc() {
 const counter = countdown(goal);
