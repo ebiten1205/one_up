@@ -16,19 +16,8 @@ module.exports = environment.toWebpackConfig()
 'use strict';
 
 console.log('test');
-console.log('test2');
-console.log('test3');
-console.log('test4');
-console.log('test5');
 console.log(2+2);
-console.log(1+1);
-console.log(3+3);
-console.log('4+4');
 window.alert('ようこそ！');
-window.alert('こんにちは！');
-window.alert('おはようございます。');
-window.alert('おはすみなさい。');
-window.alert('こんばんは！');
 document.getElementById('test').textContent = new Date();
 document.getElementById('choice').textContent = new Date();
 console.log(document.getElementById('test').textContent);
